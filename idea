@@ -1,0 +1,10 @@
+#!/bin/bash
+
+projectFile=$(find . -maxdepth 1 -name '*.ipr')
+
+if test -z $projectFile
+then
+    echo Project file not found!
+fi
+
+open -a 'Intellij IDEA' $projectFile

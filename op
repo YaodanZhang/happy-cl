@@ -1,0 +1,35 @@
+#!/bin/bash
+
+script_folder=$(dirname "$0")
+op_session_file=~/.op-session
+op_origin=$script_folder/op-origin/op
+
+if [ "signin" == "$1" ]
+then
+  set -e
+  $op_origin $@ > $op_session_file
+  cat $op_session_file
+  exit 0
+fi
+
+if [ ! -f $op_session_file ]
+then
+  touch $op_session_file
+fi
+
+source $op_session_file
+
+output=$($op_origin "$@" 2>&1)
+signed_in_or_not=$?
+
+set -e
+
+if [ ! $signed_in_or_not -eq 0 ]
+then
+  $op_origin signin my > $op_session_file
+  source $op_session_file
+  $op_origin "$@"
+else
+  echo -e "$output"
+fi
+

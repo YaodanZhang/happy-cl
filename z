@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied, meeting id required." >&2
+    exit 1
+fi
+
+if [ -z "$2" ]
+  then
+    echo "No domain provided, infered ThoughtWorks."
+fi
+
+meeting_id=$1
+domain=${2:-thoughtworks}
+
+echo $meeting_id
+echo $domain
+
+open "https://${domain}.zoom.us/j/${meeting_id}"
