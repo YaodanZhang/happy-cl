@@ -9,7 +9,9 @@ Handy Scripts
 
 ## Setup
 
-Add this folder to `$PATH`
+- Add this folder to `$PATH`
+- Move [.profile.sample](.profile.example) to `.profile` and change the
+  required configuration.
 
 ## Scripts
 
