@@ -1,1 +1,7 @@
+# The following configurations are conventions
+script_folder=$(dirname "$0")
+op_session_file=~/.op-session
+op_origin=$script_folder/op-origin/op
+
+# The following configurations need to be changed
 openshift_credential_id='some id on 1Password'

@@ -1,6 +1,8 @@
+/.idea
 ai*
 brainworks*
-**/*-origin/
+**/*-origin/*
+!**/*-origin/README.md
 jq
 oc
 .profile
