@@ -1,15 +1,11 @@
 Handy Scripts
 ---
 
-## Prerequisites
-
-- [1Password Command Line Support](op-origin)
-
-## Dependencies
+## Dependencies & Prerequisites
 
 - [jq][1]
 - [Openshift Client][2]
-- [1Password Command Line Tool][3]
+- [1Password Command Line Tool][3] with the proper [Setup](op-origin)
 
 ## Scripts
 
