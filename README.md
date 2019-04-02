@@ -7,6 +7,10 @@ Handy Scripts
 - [Openshift Client][2]
 - [1Password Command Line Tool][3] with the proper [Setup](op-origin)
 
+## Setup
+
+Add this folder to `$PATH`
+
 ## Scripts
 
 - 1Password Command Line tool wrapper with session cached: [op](op)
