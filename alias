@@ -1,0 +1,4 @@
+alias s="open -a 'Sublime Text'"
+alias glw="./gradlew"
+alias start="open ."
+alias web="open -a 'WebStorm' ."
