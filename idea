@@ -1,10 +1,17 @@
 #!/bin/bash
 
+if [ "$#" -ge 1 ]; then
+  open -a 'Intellij IDEA' "$@"
+  exit 0
+fi
+
 projectFile=$(find . -maxdepth 1 -name '*.ipr')
 
 if test -z $projectFile
 then
-    echo Project file not found!
+  echo Project file not found!
+  open -a 'Intellij IDEA' .
+  exit 0
 fi
 
 open -a 'Intellij IDEA' $projectFile
