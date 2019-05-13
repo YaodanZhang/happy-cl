@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source .profile
+
+vpn_server=${1:-example.vpn.com}
+
+two_phase_verification_code=`oathtool --totp -s 60s -b ${seed_secret}`
+
+${vpn_location} -s connect ${vpn_server} << EOF | sed 's/Password: .*/Password: ********/g'
+$username
+$password
+$two_phase_verification_code
+EOF

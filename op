@@ -22,7 +22,7 @@ signed_in_or_not=$?
 
 set -e
 
-if [[ ! $signed_in_or_not -eq 0 && $output == *"You are not currently signed in"* ]]
+if [[ ! $signed_in_or_not -eq 0 && ($output == *"You are not currently signed in"* || $output == *"Authentication required"*) ]]
 then
   $op_origin signin my > $op_session_file
   source $op_session_file

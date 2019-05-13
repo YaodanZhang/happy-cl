@@ -1,0 +1,48 @@
+#!/bin/bash
+
+source .profile
+
+actual_vpn=${default_vpn}
+
+usage() {
+  echo "Usage: vpn [-d domain] [-s vpn_server]" 1>&2
+  echo "  vpn                          Connect default vpn specified in .profile and domain script." 1>&2
+  echo "  vpn -h                       Show script usage" 1>&2
+  echo "  vpn -d a_domain              Connect to 'a_domain' with its default vpn server" 1>&2
+  echo "  vpn -s a_server              Connect to 'a_server' in default domain" 1>&2
+  echo "  vpn -d a_domain -s a_server  Connect to 'a_server' in 'a_domain'" 1>&2
+}
+
+while getopts ":h:d:s:" opt; do
+  case ${opt} in
+    h )
+      usage
+      exit 0
+      ;;
+    d )
+      actual_vpn=${OPTARG}
+      if [ -z "${actual_vpn}" ]; then
+        usage
+        exit 1
+      fi
+      ;;
+    s )
+      vpn_server=${OPTARG}
+      if [ -z "${vpn_server}" ]; then
+        usage
+        exit 1
+      fi
+      ;;
+    * )
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+killall 'Cisco AnyConnect Secure Mobility Client' 2>/dev/null
+/opt/cisco/anyconnect/bin/vpn disconnect >/dev/null
+
+${script_folder}/vpn_${actual_vpn} ${vpn_server}
+
+open -g "$vpn_app"
