@@ -7,5 +7,5 @@ vpn_location=/opt/cisco/anyconnect/bin/vpn
 
 # The following configurations need to be changed
 openshift_credential_id='some id on 1Password'
-default_vpn='somesuffix'
+default_vpn='example_domain'
 
