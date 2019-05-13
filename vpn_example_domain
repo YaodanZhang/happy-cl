@@ -3,8 +3,9 @@
 source .profile
 
 vpn_server=${1:-example.vpn.com}
+vpn_secret=$(op get item "VPN Secret" | jq -r '.details.password')
 
-two_phase_verification_code=`oathtool --totp -s 60s -b ${seed_secret}`
+two_phase_verification_code=`oathtool --totp -s 60s -b ${vpn_secret}`
 
 ${vpn_location} -s connect ${vpn_server} << EOF | sed 's/Password: .*/Password: ********/g'
 $username
