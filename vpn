@@ -1,19 +1,32 @@
 #!/bin/bash
 
+set -e
+
 source .profile
 
-actual_vpn=${default_vpn}
+actual_vpn=${default_vpn_domain}
 
-usage() {
-  echo "Usage: vpn [-d domain] [-s vpn_server]" 1>&2
-  echo "  vpn                          Connect default vpn specified in .profile and domain script." 1>&2
-  echo "  vpn -h                       Show script usage" 1>&2
-  echo "  vpn -d a_domain              Connect to 'a_domain' with its default vpn server" 1>&2
-  echo "  vpn -s a_server              Connect to 'a_server' in default domain" 1>&2
-  echo "  vpn -d a_domain -s a_server  Connect to 'a_server' in 'a_domain'" 1>&2
+disconnect() {
+  killall 'Cisco AnyConnect Secure Mobility Client' 2>/dev/null || true
+  /opt/cisco/anyconnect/bin/vpn disconnect >/dev/null
 }
 
-while getopts ":h:d:s:" opt; do
+usage() {
+  echo "Usage: vpn [-h] [-x] [-d domain] [-s vpn_server]" 1>&2
+  echo "Options:" 1>&2
+  echo "  [without any option]" 1>&2
+  echo "          Connect default vpn specified in .profile and domain script." 1>&2
+  echo "  -h" 1>&2
+  echo "          Show script usage" 1>&2
+  echo "  -x" 1>&2
+  echo "          Disconnect & quit VPN" 1>&2
+  echo "  -d a_domain" 1>&2
+  echo "          Connect to 'a_domain' with its default/selected vpn server" 1>&2
+  echo "  -s a_server" 1>&2
+  echo "          Connect to 'a_server' in default/selected domain" 1>&2
+}
+
+while getopts ":hxd:s:" opt; do
   case ${opt} in
     h )
       usage
@@ -33,6 +46,11 @@ while getopts ":h:d:s:" opt; do
         exit 1
       fi
       ;;
+    x )
+      echo '  >> Disconnecting ......'
+      disconnect
+      exit 0
+      ;;
     * )
       usage
       exit 1
@@ -40,8 +58,7 @@ while getopts ":h:d:s:" opt; do
   esac
 done
 
-killall 'Cisco AnyConnect Secure Mobility Client' 2>/dev/null
-/opt/cisco/anyconnect/bin/vpn disconnect >/dev/null
+echo "  >> Using domain: ${actual_vpn}"
 
 ${script_folder}/vpn_${actual_vpn} ${vpn_server}
 

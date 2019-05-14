@@ -24,10 +24,11 @@ if [ ! $signed_in_or_not -eq 0 ]
 then
   set -e
 
-  openshift_username=$(op get item "$openshift_credential_id" | jq -r '.details.fields | map(select(.name == "username")) | .[0].value')
+  vault=$(op get item "$openshift_credential_id")
+  openshift_username=$(echo $vault | jq -r '.details.fields | map(select(.name == "username")) | .[0].value')
   echo "export openshift_username=$openshift_username" > $cache_file
 
-  openshift_password=$(op get item "$openshift_credential_id" | jq -r '.details.fields | map(select(.name == "password")) | .[0].value')
+  openshift_password=$(echo $vault | jq -r '.details.fields | map(select(.name == "password")) | .[0].value')
 
   oc login "$@" --username=$openshift_username --password=$openshift_password
 else
