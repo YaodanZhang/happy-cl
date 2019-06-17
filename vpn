@@ -8,7 +8,7 @@ actual_vpn=${default_vpn_domain}
 
 disconnect() {
   killall 'Cisco AnyConnect Secure Mobility Client' 2>/dev/null || true
-  /opt/cisco/anyconnect/bin/vpn disconnect >/dev/null
+  ${vpn_app_cl} disconnect >/dev/null
 }
 
 usage() {
@@ -60,6 +60,7 @@ done
 
 echo "  >> Using domain: ${actual_vpn}"
 
+disconnect
 ${script_folder}/vpn_${actual_vpn} ${vpn_server}
 
 open -g "$vpn_app"
