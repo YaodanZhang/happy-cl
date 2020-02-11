@@ -4,8 +4,7 @@ set -e
 
 if [ $# -eq 0 ]
   then
-    echo "No arguments supplied, meeting id required." >&2
-    exit 1
+    echo "No arguments supplied. Use personal url"
 fi
 
 if [ -z "$2" ]
@@ -13,10 +12,20 @@ if [ -z "$2" ]
     echo "No domain provided, infered ThoughtWorks."
 fi
 
-meeting_id=$1
+meeting_id=${1:-yaodan}
 domain=${2:-thoughtworks}
 
 echo $meeting_id
 echo $domain
 
-open "https://${domain}.zoom.us/j/${meeting_id}"
+number_regex='^[0-9]+$'
+if [[ $meeting_id =~ $number_regex ]] ; then
+  url="https://${domain}.zoom.us/j/${meeting_id}"
+else
+  url="https://${domain}.zoom.us/my/${meeting_id}"	
+fi
+
+echo $url | pbcopy
+
+open $url
+

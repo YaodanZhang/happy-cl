@@ -9,3 +9,5 @@ vpn_app_cl=/opt/cisco/anyconnect/bin/vpn
 openshift_credential_id='some id on 1Password'
 default_vpn_domain='example_domain'
 
+# The share location of the owasp dependency check db
+owasp_cache_dir=/owasp/cache

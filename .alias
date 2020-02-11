@@ -1,0 +1,7 @@
+#!/bin/bash
+
+alias s="open -a 'Sublime Text'"
+alias glw="./gradlew"
+alias start="open ."
+alias web="open -a 'WebStorm' ."
+alias code="open -a 'Visual Studio Code'"
