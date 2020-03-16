@@ -2,18 +2,13 @@
 
 set -e
 
-source .profile
+source $(dirname "$0")/.profile
 
-mkdir -p ${owasp_cache_dir}
+mkdir -p ${owasp_cache_dir}/log
 
-dependency-check \
+/usr/local/bin/dependency-check \
 	-d ${owasp_cache_dir} \
 	-f ALL \
-	--purge \
-	| true
-
-dependency-check \
-	-d ${owasp_cache_dir} \
-	-f ALL \
+	--cveValidForHours 1 \
 	--updateonly \
 	$@
