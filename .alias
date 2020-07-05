@@ -11,3 +11,8 @@ alias cf='ccloud'
 alias 成都='cd'
 alias ok='operator-sdk'
 alias tf='terraform'
+alias tg='terragrunt'
+alias record='asciinema'
+alias re='asciinema'
+alias b='base64'
+
