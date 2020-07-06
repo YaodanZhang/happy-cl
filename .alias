@@ -15,4 +15,4 @@ alias tg='terragrunt'
 alias record='asciinema'
 alias re='asciinema'
 alias b='base64'
-
+alias py="python3"
