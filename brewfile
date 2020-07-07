@@ -41,4 +41,5 @@ cask "chef/chef/inspec"
 brew "yamllint"
 brew "hadolint"
 brew "kube-ps1"
+brew "tmux"
 
