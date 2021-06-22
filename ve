@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+aws-vault exec "${AWS_LOCAL_PROFILE:-tw}" --no-session -- "$@"
