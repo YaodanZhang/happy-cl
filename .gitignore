@@ -9,6 +9,5 @@ oc
 *.cache
 vpn_*
 !vpn_example_domain
-Brewfile.lock.json
 **/addtional-configs/*
 !**/addtional-configs/keep-me-in-git
