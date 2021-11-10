@@ -17,3 +17,4 @@ alias re='asciinema'
 alias b='base64'
 alias py="python3"
 alias kns='kubens'
+alias ci='circleci'
