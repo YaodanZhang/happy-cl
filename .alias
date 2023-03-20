@@ -4,6 +4,7 @@ alias s="open -a 'Sublime Text'"
 alias glw="./gradlew"
 alias start="open ."
 alias web="open -a 'WebStorm' ."
+alias charm="open -a 'PyCharm Professional' ."
 alias land="open -a 'GoLand' ."
 alias code="open -a 'Visual Studio Code'"
 alias killvpn='vpn -x'
@@ -18,3 +19,6 @@ alias b='base64'
 alias py="python3"
 alias kns='kubens'
 alias ci='circleci'
+alias dev="cd ~/Documents/development"
+alias self="cd ~/Documents/development/self"
+
