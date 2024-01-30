@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+APP_NAME="IntelliJ IDEA Ultimate"
 
 if [ "$#" -ge 1 ]; then
-  open -a 'Intellij IDEA' "$@"
+  open -a "${APP_NAME}" "$@"
   exit 0
 fi
 
@@ -10,8 +14,8 @@ projectFile=$(find . -maxdepth 1 -name '*.ipr')
 if test -z $projectFile
 then
   echo Project file not found!
-  open -a 'Intellij IDEA' .
+  open -a "${APP_NAME}" .
   exit 0
 fi
 
-open -a 'Intellij IDEA' $projectFile
+open -a "${APP_NAME}" $projectFile

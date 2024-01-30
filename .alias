@@ -21,4 +21,4 @@ alias kns='kubens'
 alias ci='circleci'
 alias dev="cd ~/Documents/development"
 alias self="cd ~/Documents/development/self"
-
+alias hey='go run /usr/local/Cellar/go/1.12.4/src/github.com/rakyll/hey/hey.go'
