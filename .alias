@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias s="open -a 'Sublime Text'"
 alias glw="./gradlew"
