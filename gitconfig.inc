@@ -30,3 +30,5 @@
   filemode = true
 [rebase]
   autoStash = false
+# [includIf "gitdir:/path/to/project/"]
+#   path = /path/to/project/gitconfig.inc
