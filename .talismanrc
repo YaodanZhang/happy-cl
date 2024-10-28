@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: gitconfig.inc
+  checksum: 48e2909db02359f773fdba31434f292c2574ff75193f7c92b5c5c193136240c0
+version: "1.0"
