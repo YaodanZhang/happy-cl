@@ -27,8 +27,9 @@
   changed = green
   untracked = cyan
 [core]
-  autocrlf = input
+  autocrlf = false
   filemode = true
+  elo = lf
 [init]
   defaultBranch = main
 [rebase]
