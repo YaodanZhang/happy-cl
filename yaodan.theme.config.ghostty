@@ -14,9 +14,13 @@ palette = 12=#61afef
 palette = 13=#c678dd
 palette = 14=#56b6c2
 palette = 15=#fffefe
-background = #1e2127
+background = #21252b
 foreground = #abb2bf
 cursor-color = #f5e0dc
 cursor-text = #1e1e2e
 selection-background = #5c6370
 selection-foreground = #3a3f4b
+
+## Yaodan's Iterm2
+# background = #1e2127
+# foreground = #abb2bf
