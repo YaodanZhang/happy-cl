@@ -51,8 +51,7 @@ brew "graphviz"
 brew "hadolint"
 brew "helm"
 brew "httpie"
-brew "imagemagick", link: false
-brew "imagemagick-full", link: true
+brew "imagemagick-full"
 brew "infracost"
 brew "jq"
 brew "zookeeper"
@@ -76,7 +75,7 @@ brew "pipenv"
 brew "plantuml"
 brew "poppler"
 brew "postgresql@16"
-brew "powershell", link: false
+brew "powershell"
 brew "pulumi"
 brew "pyenv"
 brew "redis"
